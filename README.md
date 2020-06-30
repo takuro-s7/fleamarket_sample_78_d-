@@ -1,6 +1,6 @@
 # README
 
-usersテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string| null:false|
@@ -12,13 +12,13 @@ usersテーブル
 |first_name_kana|string| null:false|
 |last_name_kana|string| null:false|
 |birthday|date| null:false|
-Association
+### Association
 - has_one :address
 - has_one :card
 - has_many :products
 
-
-addressesテーブル
+ 
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null:false,foreign_key: true|
@@ -27,11 +27,10 @@ addressesテーブル
 |city|string|null: false|
 |block_number|string|null: false|
 |apartment_name|string|
-Association
+### Association
 - belongs_to :user
-- has_many :products
 
-productsテーブル
+## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string| null:false|
@@ -47,35 +46,35 @@ productsテーブル
 |shipping_date|integer| null:false|
 |prefecture|integer| null:false|
 |size|string| null: false|
-Association
+### Association
 - belongs_to :user
 - belongs_to :category
 - has_many :images
 
 
-cardsテーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references| null:false, foreign_key: true|
 |customer_id|string| null:false|
 |card_id|string| null:false|
-Association
+### Association
 - belongs_to :user
 
-imagesテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 image|text|null: false|
 product|references| null: false, foreign_key: true|
-Association
+### Association
 - belongs_to :product
 
-categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 name| string | null: false|
 ancestry| string|
-Association
+### Association
 - has_many:products
 
 
