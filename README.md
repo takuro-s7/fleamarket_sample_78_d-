@@ -1,24 +1,87 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string| null:false|
+|email|string| null:false, unique: true|
+|password|string| null:false|
+|password_conform|string| null:false|
+|first_name|string|null:false|
+|last_name|string|null:false|
+|first_name_kana|string| null:false|
+|last_name_kana|string| null:false|
+|birthday|date| null:false|
 
-Things you may want to cover:
+### Association
+- has_one :address
+- has_one :card
+- has_many :products
 
-* Ruby version
+ 
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false,foreign_key: true|
+|postal_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|block_number|string|null: false|
+|apartment_name|string|
 
-* System dependencies
+### Association
+- belongs_to :user
 
-* Configuration
+## productsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string| null:false|
+|description|text|null: false|
+|price|integer| null:false|
+|condition|integer| null:false|
+|status|integer| null:false|
+|brand|string|
+|send_price|integer| null:false|
+|buyer_id|integer| null:false|
+|category_id|integer| null:false, foreign_key: true|
+|user|references|null:false, foreign_key: true|
+|shipping_date|integer| null:false|
+|prefecture|integer| null:false|
+|size|string| null: false|
 
-* Database creation
+### Association
+- belongs_to :user
+- belongs_to :category
+- has_many :images
 
-* Database initialization
 
-* How to run the test suite
+## cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references| null:false, foreign_key: true|
+|customer_id|string| null:false|
+|card_id|string| null:false|
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to :user
 
-* Deployment instructions
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+image|text|null: false|
+product|references| null: false, foreign_key: true|
 
-* ...
+### Association
+- belongs_to :product
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+name| string | null: false|
+ancestry| string|
+
+### Association
+- has_many:products
+
+
+
