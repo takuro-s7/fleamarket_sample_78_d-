@@ -8,15 +8,16 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header
+    %header.boss
       .header-inner 
         .header-inner__main
           %h1.header-inner__main--icon
             %a
+              FURIMA
           .header-inner__main--search-box
-            %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+            %form.header-inner__main--search-box__form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
               %input{:name => "utf8", :type => "hidden", :value => "✓"}
-              %input#searchInput.header-inner__main--search-box__input{:name => "key", :placeholder => "キーワードから探す"}
+              %input#searchInput.header-inner__main--search-box__form--input{:name => "key", :placeholder => "キーワードから探す"}
               %button{:type => "submit"}
                 .header-inner__main--search-box__icon
               %input{:name => "authenticity_token", :type => "hidden"}
