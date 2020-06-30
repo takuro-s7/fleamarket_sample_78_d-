@@ -22,8 +22,8 @@ addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null:false,foreign_key: true|
-|postal_code|string|null: false
-|prefecture_id|string|null: false, foreign_key: true|
+|postal_code|string|null: false|
+|prefecture|string|null: false|
 |city|string|null: false|
 |block_number|string|null: false|
 |apartment_name|string|
@@ -43,8 +43,8 @@ productsテーブル
 |send_price|integer| null:false
 |buyer_id|integer| null:false
 |category_id|integer| null:false, foreign_key: true
-|user|references|index: true, foreign_key: true|
-|shipping_date|string| null:false, foreign_key: true
+|user|references|null:false, foreign_key: true|
+|shipping_date|integer| null:false
 |prefecture|integer| null:false
 |size|string| null: false
 Association
@@ -68,7 +68,7 @@ imagesテーブル
 image|text|null: false
 product|references| null: false, foreign_key: true
 Association
-- belongs_to :products
+- belongs_to :product
 
 categoriesテーブル
 |Column|Type|Options|
@@ -76,7 +76,7 @@ categoriesテーブル
 name| string | null: false
 ancestry| string
 Association
-- has_many:product
+- has_many:products
 
 
 
