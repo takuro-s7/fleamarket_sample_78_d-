@@ -67,4 +67,4 @@ ancestry| string
 Association
 - has_many:products
 
-
+https://files.slack.com/files-pri/T1MLERC4C-F0169JS1U4T/____________________________2020-06-30_15.22.08.png
