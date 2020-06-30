@@ -11,8 +11,8 @@ usersテーブル
 |last_name_kana|string| null:false
 |birthday|date| null:false
 Association
-- belongs_to :addresses
-- belongs_to :cards
+- has_one :addresses
+- has_one :cards
 - has_many :products
 
 
@@ -29,21 +29,20 @@ Association
 
 productsテーブル
 |name|string| null:false
-|description|Text|null: false
-|price|Integer| null:false
-|condition|Integer| null:false
-|status|Integer| null:false
+|description|text|null: false
+|price|integer| null:false
+|condition|integer| null:false
+|status|integer| null:false
 |brand|string|
-|send_price|Integer| null:false
-|buyer_id|Integer| null:false
-|category_id|Integer| null:false, foreign_key: true
+|send_price|integer| null:false
+|buyer_id|integer| null:false
+|category_id|integer| null:false, foreign_key: true
 |user|references|index: true, foreign_key: true|
 |shipping_date|string| null:false, foreign_key: true
 |prefecture|integer| null:false
 |size|string| null: false
 Association
 - belongs_to :user
-- belongs_to :cards
 - belongs_to :category
 - has_many :images
 
@@ -57,7 +56,7 @@ Association
 
 imagesテーブル
 image|text|null: false
-product|references| null: false, 
+product|references| null: false, foreign_key: true
 Association
 - belongs_to :products
 
@@ -65,6 +64,6 @@ categoriesテーブル
 name| string | null: false
 ancestry| string
 Association
-- has_many:products
+- has_many:product
 
-https://files.slack.com/files-pri/T1MLERC4C-F0169JS1U4T/____________________________2020-06-30_15.22.08.png
+
