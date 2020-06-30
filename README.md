@@ -67,3 +67,4 @@ Association
 - has_many:product
 
 
+
