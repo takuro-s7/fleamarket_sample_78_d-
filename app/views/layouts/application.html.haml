@@ -6,6 +6,28 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %header
+      .header-inner 
+        .header-inner__main
+          %h1.header-inner__main--icon
+            %a
+          .header-inner__main--search-box
+            %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+              %input{:name => "utf8", :type => "hidden", :value => "✓"}
+              %input#searchInput.header-inner__main--search-box__input{:name => "key", :placeholder => "キーワードから探す"}
+              %button{:type => "submit"}
+                .header-inner__main--search-box__icon
+              %input{:name => "authenticity_token", :type => "hidden"}
+          %ul.header-inner__main--resultlist
+        .header-inner__nav
+          %ul.header-inner__nav--lists-left
+            %li.header-inner__nav--lists-left__item.header-inner__nav--lists-left__item__first
+            %li.header-inner__nav--lists-left__item
+          %ul.heafer-inner__nav--lists-right
+            %li.heafer-inner__nav--lists-right__login
+            %li.heafer-inner__nav--lists-right__new
+        = yield
+
+
