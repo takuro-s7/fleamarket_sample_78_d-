@@ -1,6 +1,8 @@
 # README
 
 usersテーブル
+|Column|Type|Options|
+|------|----|-------|
 |nickname|string| null:false
 |email|string| null:false, unique: true, 
 |password|string| null:false
@@ -11,13 +13,15 @@ usersテーブル
 |last_name_kana|string| null:false
 |birthday|date| null:false
 Association
-- has_one :addresses
-- has_one :cards
+- has_one :address
+- has_one :card
 - has_many :products
 
 
 addressesテーブル
-|user_id|references|null:false,foreign_key: true|
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false,foreign_key: true|
 |postal_code|string|null: false
 |prefecture_id|string|null: false, foreign_key: true|
 |city|string|null: false|
@@ -28,6 +32,8 @@ Association
 - has_many :products
 
 productsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |name|string| null:false
 |description|text|null: false
 |price|integer| null:false
@@ -48,6 +54,8 @@ Association
 
 
 cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |user_id|references| null:false, foreign_key: true
 |customer_id|string| null:false
 |card_id|string| null:false
@@ -55,12 +63,16 @@ Association
 - belongs_to :user
 
 imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
 image|text|null: false
 product|references| null: false, foreign_key: true
 Association
 - belongs_to :products
 
 categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
 name| string | null: false
 ancestry| string
 Association
