@@ -12,6 +12,7 @@
 |first_name_kana|string| null:false|
 |last_name_kana|string| null:false|
 |birthday|date| null:false|
+
 ### Association
 - has_one :address
 - has_one :card
@@ -27,6 +28,7 @@
 |city|string|null: false|
 |block_number|string|null: false|
 |apartment_name|string|
+
 ### Association
 - belongs_to :user
 
@@ -46,6 +48,7 @@
 |shipping_date|integer| null:false|
 |prefecture|integer| null:false|
 |size|string| null: false|
+
 ### Association
 - belongs_to :user
 - belongs_to :category
@@ -58,6 +61,7 @@
 |user_id|references| null:false, foreign_key: true|
 |customer_id|string| null:false|
 |card_id|string| null:false|
+
 ### Association
 - belongs_to :user
 
@@ -66,6 +70,7 @@
 |------|----|-------|
 image|text|null: false|
 product|references| null: false, foreign_key: true|
+
 ### Association
 - belongs_to :product
 
@@ -74,6 +79,7 @@ product|references| null: false, foreign_key: true|
 |------|----|-------|
 name| string | null: false|
 ancestry| string|
+
 ### Association
 - has_many:products
 
