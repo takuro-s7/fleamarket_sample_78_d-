@@ -13,23 +13,29 @@
       .header-inner 
         .header-inner__main
           %h1.header-inner__main--icon
-            %a
-              FURIMA
+            %a.header-inner__main--icon__img
+              = image_tag 'material/logo/logo.png', alt: 'FURIMA', class: 'header-inner__main--icon__img'
           .header-inner__main--search-box
-            %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
-              %input{:name => "utf8", :type => "hidden", :value => "✓"}
-              %input#searchInput.header-inner__main--search-box__form--input{:name => "key", :placeholder => "キーワードから探す"}
-              %button{:type => "submit"}
-                .header-inner__main--search-box__icon
+            %form.header-inner__main--search-box__form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+              %input.header-inner__main--search-box__form__input{:name => "utf8", :type => "hidden", :value => "✓"}
+              %input#searchInput.header-inner__main--search-box__form__input{:name => "key", :placeholder => "キーワードから探す"}
+              %button.header-inner__main--search-box__form__button{:type => "submit"}
+                .header-inner__main--search-box__form__button__icon
+                  = image_tag 'material/icon/icon-search1.png', alt: 'search', class: ''
               %input{:name => "authenticity_token", :type => "hidden"}
           %ul.header-inner__main--resultlist
+          -# ここからナビバー
         .header-inner__nav
           %ul.header-inner__nav--lists-left
             %li.header-inner__nav--lists-left__item.header-inner__nav--lists-left__item__first
+              =link_to "カテゴリー","#",class: "header-inner__nav--lists-left__item"
             %li.header-inner__nav--lists-left__item
+              =link_to "ブランド","#",class: "header-inner__nav--lists-left__item"
           %ul.heafer-inner__nav--lists-right
             %li.heafer-inner__nav--lists-right__login
+              =link_to "ログイン","#",class: "header-inner__nav--lists-left__item"
             %li.heafer-inner__nav--lists-right__new
+              =link_to "新規会員登録","#",class: "header-inner__nav--lists-left__item"
         = yield
 
 
