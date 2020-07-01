@@ -28,12 +28,14 @@
         .header-inner__nav
           %ul.header-inner__nav--lists-left
             %li.header-inner__nav--lists-left__item.header-inner__nav--lists-left__item__first
-              =link_to "カテゴリー","#"
+              =link_to "カテゴリー","#",class: "header-inner__nav--lists-left__item"
             %li.header-inner__nav--lists-left__item
-              =link_to "ブランド","#"
+              =link_to "ブランド","#",class: "header-inner__nav--lists-left__item"
           %ul.heafer-inner__nav--lists-right
             %li.heafer-inner__nav--lists-right__login
+              =link_to "ログイン","#",class: "header-inner__nav--lists-left__item"
             %li.heafer-inner__nav--lists-right__new
+              =link_to "新規会員登録","#",class: "header-inner__nav--lists-left__item"
         = yield
 
 

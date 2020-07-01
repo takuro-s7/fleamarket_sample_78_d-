@@ -69,12 +69,18 @@
 &__nav{
   font-size: 14px;
   display: flex;
+  justify-content: space-between;
   margin-bottom: 10px;
   &--lists-left{
     position: relative;
     display: flex;
-    
+    &__item{
+      margin: 8px 0 5px 5px;
+      color: white;
+      cursor: pointer;
+    }
   }
+  
 }
 
   }
