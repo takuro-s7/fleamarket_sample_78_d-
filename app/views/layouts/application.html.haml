@@ -6,6 +6,7 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "header_footer/header", :media => "all"
     -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header.boss
@@ -15,7 +16,7 @@
             %a
               FURIMA
           .header-inner__main--search-box
-            %form.header-inner__main--search-box__form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+            %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
               %input{:name => "utf8", :type => "hidden", :value => "✓"}
               %input#searchInput.header-inner__main--search-box__form--input{:name => "key", :placeholder => "キーワードから探す"}
               %button{:type => "submit"}
