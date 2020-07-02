@@ -7,6 +7,7 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag "header_footer/header", :media => "all"
+    = stylesheet_link_tag "header_footer/footer", :media => "all"
     -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header.boss
@@ -18,11 +19,11 @@
           .header-inner__main--search-box
             %form.header-inner__main--search-box__form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
               %input.header-inner__main--search-box__form__input{:name => "utf8", :type => "hidden", :value => "✓"}
-              %input#searchInput.header-inner__main--search-box__form__input{:name => "key", :placeholder => "キーワードから探す"}
-              %button.header-inner__main--search-box__form__button{:type => "submit"}
+              %input#searchInput.header-inner__main--search-box__form__input{name: "key", placeholder: "キーワードから探す"}
+              %button.header-inner__main--search-box__form__button{type: "submit"}
                 .header-inner__main--search-box__form__button__icon
                   = image_tag 'material/icon/icon-search1.png', alt: 'search', class: ''
-              %input{:name => "authenticity_token", :type => "hidden"}
+              %input{name: "authenticity_token", type: "hidden"}
           %ul.header-inner__main--resultlist
           -# ここからナビバー
         .header-inner__nav
@@ -36,6 +37,18 @@
               =link_to "ログイン","#",class: "header-inner__nav--lists-right__login"
             %li.header-inner__nav--lists-right__new
               =link_to "新規会員登録","#",class: "header-inner__nav--lists-right__new"
-        = yield
+    = yield
+    %footer
+      %aside.appBanner
+        .appBanner__inner
+          %h2.appBanner__inner--title
+            だれでもかんたん、人生を変えるフリマアプリ
+          %p.appBanner__inner--text
+            今すぐ無料ダウンロード
+          .appBanner__inner--icon
+            = link_to (image_tag "app-store"), "#" 
+            = link_to (image_tag "gougleplay")
+              
+ 
 
 
