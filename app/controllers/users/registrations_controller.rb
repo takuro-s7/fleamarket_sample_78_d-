@@ -9,8 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @address = Address.new
   end  
 
-
-  
   def new
     @user = User.new
   end
@@ -41,9 +39,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_address and return
     end
     @user.build_address(@address.attributes)
-    @user.save
-    session["devise.regist_data"]["user"].clear
-    sign_in(:user, @user)
+    if @user.save
+      session["devise.regist_data"]["user"].clear
+      sign_in(:user, @user)
+    else 
+      render :new 
+    end  
+    
   end
 
 
