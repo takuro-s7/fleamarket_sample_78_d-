@@ -65,5 +65,13 @@ gem "devise"
 group :production do
   gem 'unicorn'
 end
-
-
+gem 'pry-rails'
+gem 'enum_help'
+gem 'fog-aws'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'font-awesome-rails'
+gem 'active_hash'
+gem 'jquery-rails'
+gem 'font-awesome-sass'
+gem 'font-awesome-rails'
