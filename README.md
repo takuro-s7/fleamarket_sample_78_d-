@@ -18,7 +18,6 @@
 - has_one :card
 - has_many :products
 
- 
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
