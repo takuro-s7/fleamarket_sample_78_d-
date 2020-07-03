@@ -146,27 +146,30 @@
           = f.submit "出品する", class: "exhibition-btn"
           %a.back-btn{:href => "#"}
             もどる
-      .listing-submission__sell__content__text
-        禁止されている
-        .listing-submission__sell__content__p
-          =link_to "#", class: 'sell__content__text' do
-            行為
+      .listing-submission__text__content
+        .listing-submission__first__line
+          .listing-submission__first__line__text
+            禁止されている
+          .listing-submission__first__line__text2
+            =link_to "#", class: 'sell__content__text' do
+              行為
           および
           =link_to "#", class: 'sell__content__text' do
             出品物
           を必ずご確認ください。
-          .listing-submission__sell--content5__p
+          .listing-submission__first__line__text3
             =link_to "#", class: 'sell__content__text' do
               偽ブランドや
-          .listing-submission__sell--content5__p
+          .listing-submission__first__line__text4
             =link_to "#", class: 'sell__content__text' do
               盗品物
-            などの販売は犯罪であり、
-            %br
-            法律により処罰される可能性があります。また、出品をもちまして
-          .listing-submission__sell--content5__p
+          などの販売は犯罪であり、法律に
+        .listing-submission__second__line
+          %br.listing-submission__second__line__text
+            より処罰される可能性があります。また、出品をもちまして
+          .listing-submission__second__line__text2
             =link_to "#", class: 'sell__content__text' do
-              加盟店規約
+              加盟店規約 
             に同意したことになります。
 .exhibit__footer
   .exhibit__footer__content
