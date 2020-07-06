@@ -19,7 +19,6 @@ Rails.application.config.assets.precompile += %w( application.css )
 Rails.application.config.assets.precompile += %w( header_footer/header.css )
 Rails.application.config.assets.precompile += %w( header_footer/footer.css )
 
-
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
