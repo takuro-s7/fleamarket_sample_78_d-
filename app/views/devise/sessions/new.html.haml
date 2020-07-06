@@ -18,15 +18,8 @@
             %br/
             = f.password_field :password,{ autocomplete: "パスワード", placeholder: "登録したパスワード", class: 'form-group__input'}
           - if devise_mapping.rememberable?
-            -# .form-group
-            -#   = f.check_box :remember_me
-            -#   = f.label :remember_me
             .form-group
               = f.submit "ログイン", class: "btn-default btn-red"
-    -# %section.login-panel
-    -#   .login-no-account
-    -#     %p アカウントをお持ちでない方はこちら
-    -#     =link_to new_user_registration_path, class: "btn-def--login" do
-    -#       新規会員登録        
+    
 
 = render "devise/registrations/registration_footer"
