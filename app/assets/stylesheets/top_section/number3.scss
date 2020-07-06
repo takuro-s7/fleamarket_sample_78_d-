@@ -1,14 +1,19 @@
-
+// 上から三つ目のセクションのscssです(_number3)
 .pickupContainer{
   padding: 80px 0 0;
   background-color: #f8f8f8;
   height: 100%;
   &__head{
+    font-size: 27px;
     text-align: center;
-    font-size: 28px;
-    line-height: 1.4;
+    margin: 0 0 40px;
     font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
   }
+
+  
   &__productBox{
   &__head{
     text-align: center;
@@ -54,9 +59,20 @@
     color: #333;
     padding: 16px;
 
-
-
-
-
-
-
+    &__name{
+      overflow: hidden;
+    line-height: 1.5;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 5px;
+    }
+    &__datails{
+      font-size: 16px;
+    }
+}
+    }
+    }
+  }
+}
+  
+  }
