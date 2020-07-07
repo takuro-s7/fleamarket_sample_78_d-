@@ -12,6 +12,7 @@
     = javascript_include_tag 'application'
     = stylesheet_link_tag "header_footer/header", media: "all"
     = stylesheet_link_tag "header_footer/footer", media: "all"
+    = javascript_include_tag 'application
    
     -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
@@ -27,7 +28,7 @@
               %input#searchInput.header-inner__main--search-box__form__input{name: "key", placeholder: "キーワードから探す"}
               %button.header-inner__main--search-box__form__button{type: "submit"}
                 .header-inner__main--search-box__form__button__icon
-                  = image_tag 'material/icon/icon-search1.png', alt: 'search', class: 'header-inner__main--search-box__form__button__img'
+                  = image_tag 'material/icon/icon-search1.png', alt: 'search', class: 'header-inner__main--search-box__form__button__icon__img'
               %input{name: "authenticity_token", type: "hidden"}
           %ul.header-inner__main--resultlist
           -# ここからナビバー
@@ -39,9 +40,12 @@
               =link_to "ブランド","#",class: "header-inner__nav--lists-left__item"
           %ul.header-inner__nav--lists-right
             %li.header-inner__nav--lists-right__login
-              =link_to "ログイン","#",class: "header-inner__nav--lists-right__login"
-            %li.header-inner__nav--lists-right__new
-              =link_to "新規会員登録","#",class: "header-inner__nav--lists-right__new"
+            - if user_signed_in?
+              = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-inner__nav--lists-right__logout"
+            - else  
+              =link_to "ログイン",new_user_session_path,class: "header-inner__nav--lists-right__login"
+              %li.header-inner__nav--lists-right__new
+                =link_to "新規会員登録", new_user_registration_path,class: "header-inner__nav--lists-right__new"
     = yield
     -# フッター
     %footer

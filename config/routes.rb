@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
   
-  # root to: 'products#index'
   resources :users, only: :new  
 
   resources :products
