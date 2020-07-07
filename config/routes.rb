@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'products#index'
 
+  resources :products, except: [:index]
+  get 'products/new/mid_category', to: 'products#mid_category'
+  get 'products/new/small_category', to: 'products#small_category'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions:      "users/sessions"
@@ -13,4 +17,6 @@ Rails.application.routes.draw do
   
   resources :users, only: :new
   resources :products
+  get 'products/new/mid_category', to: 'products#mid_category'
+  get 'products/new/small_category', to: 'products#small_category'
 end

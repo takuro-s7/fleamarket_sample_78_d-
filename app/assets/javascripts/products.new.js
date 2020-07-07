@@ -45,20 +45,20 @@ window.addEventListener("load", function(){
   $('.select-area').on('click',function(){
     let status = $(this).val();
     if(status == 0){
-      $('.select-area').css('border-color','red')
+      $('.default02').css('border-color','red')
       $('no-product__condition').text('選択してください')
     }else{
-      $('.select-area').css('border-color','')
+      $('.default02').css('border-color','')
       $('no-product__condition').text('')
     }
   });
-  $('.select-area').on('change',function(){
+  $('.default02').on('change',function(){
     let status = $(this).val();
     if(status == 0){
-      $('.select-area').css('border-color','red')
+      $('.default02').css('border-color','red')
       $('no-product__condition').text('選択してください')
     }else{
-      $('.select-area').css('border-color','')
+      $('.default02').css('border-color','')
       $('no-product__condition').text('')
     }
   });
@@ -73,13 +73,13 @@ window.addEventListener("load", function(){
       $('.no-product__send_price').text('')
     }
   });
-  $('.select-area').on('change',function(){
+  $('.default03').on('change',function(){
     let send_price = $(this).val();
     if( send_price == 0){
-      $('.select-area').css('border-color','red')
+      $('.default03').css('border-color','red')
       $('.no-product__send_price').text('選択してください')
     }else{
-      $('.select-area').css('border-color','')
+      $('.default03').css('border-color','')
       $('.no-product__send_price').text('')
     }
   });
@@ -103,23 +103,23 @@ window.addEventListener("load", function(){
       $('.no-product__price').text('')
     }
   });
-  $('.select-area').on('click',function(){
+  $('.select').on('click',function(){
     let shipping_date = $(this).val();
-    if(shipping_date == 0){
-      $('.select-area').css('border-color','red')
+    if(shipping_date == ''){
+      $('.select').css('border-color','red')
       $('.no-product__shipping_date').text('選択してください')
     }else{
-      $('.select-area').css('border-color','')
+      $('.select').css('border-color','')
       $('.no-product__shipping_date').text('')
     }
   });
-  $('.select-area').on('change',function(){
+  $('.select').on('change',function(){
     let shipping_date = $(this).val();
     if(shipping_date == 0){
-      $('.select-area').css('border-color','red')
+      $('.select').css('border-color','red')
       $('.no-product__shipping_date').text('選択してください')
     }else{
-      $('.select-area').css('border-color','')
+      $('.select').css('border-color','')
       $('.no-product__shipping_date').text('')
     }
   });

@@ -12,21 +12,21 @@
         .listing-submission__text
           最大10枚までアップロードできます
       
-      #image-box-1
-        .camera-box.item-num-0#image-box__container
-          = f.fields_for :images do |image|
-            .js-file_group{"data-index" => "#{image.index}"}
-            .listing-submission__upload__container
-              %label.upload-label
-                .upload-label__text
-                  ドラッグアンドドロップ
-                  %br
-                  またはクリックしてファイルをアップロード
+        #image-box-1
+          .camera-box.item-num-0#image-box__container
+            = f.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+              .listing-submission__upload__container
+                %label.upload-label
                   .listing-submission__upload__drop__box
-                    = image.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
+                    = image.file_field :image, type: 'file', name: "product[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
                     %label{for: "img-file"}
                       %i.fas.fa-camera
-            .listing-submission__no-image
+                  .upload-label__text
+                    ドラッグアンドドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
+        .listing-submission__no-image
 
       .listing-submission__sell__content
         .listing-submission__group
@@ -34,14 +34,14 @@
             = f.label :name,"商品名"
             %span.listing-submission__form-require
               必須
-          = f.text_field :name, class:"name__text__field",placeholder: "商品名（必須 40文字まで)"
+          = f.text_field :name, class:"name__text__field",placeholder: "必須 40文字まで"
         .listing-submission__no-product.no-product__name
-        .listing-submission__group
+        .listing-submission__text-area-group
           .listing-submission__content__head
             = f.label :description, "商品の説明"
             %span.listing-submission__form-require
               必須
-          =f.text_area :discription,class:"content__text__area",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          =f.text_area :description, class:"content__text__area",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
         .listing-submission__no-product.no-product__text
 
       .listing-submission__product__details
@@ -51,9 +51,17 @@
             .listing-submission__select--wrap
               = f.label :category_id, "カテゴリー" ,class: "listing-submission__content__head"
               %span.listing-submission__form-require 必須
-
-              .listing-submission__select--wrap{id: "category__box__parent"}
-                = f.collection_select :category_id, Category.all.limit(13), :id, :name,{prompt:"---"},{class:"select--wrap-cat1__default-category1", id: "parent_form"}
+              .sell__about__right__wrap-box.parent
+                %select#parent
+                  %option{value: 0} ---
+                  - @parent.each do |parent|
+                    %option{value: "#{parent.id}"} #{parent.name}
+                .child
+                  %select#child
+              .grand_child
+                = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
+              .new-listing__no-product
+                選択してください
 
           .listing-submission__details__form
             .listing-submission__content__head
@@ -67,17 +75,15 @@
               = f.label :size,"サイズ"
               %span.listing-submission__form-require 必須
               .select--wrap
-                %i.fas.fa-angle-down
-                  = f.select :size, Product.sizes_i18n.invert, {}, class: "select-area"
+                = f.select :size, Product.sizes_i18n.invert, {}, class: "select-default"
                 
           .listing-submission__details__form
             .listing-submission__content__head
               = f.label :status,"商品の状態"
               %span.listing-submission__form-require 必須
               .listing-submission__select--wrap
-                %i.fas.fa-angle-down
-                  = f.select :condition, Product.conditions_i18n.invert, {}, class: "select-area"
-                  .listing-submission__no-product.no-product__condition
+                = f.select :condition, Product.conditions_i18n.invert, include_blank: '選択してください', class: "select-default"
+                .listing-submission__no-product.no-product__condition
 
       .listing-submission__delivery__form
         .listing-submission__delivery__top
@@ -90,7 +96,7 @@
               = f.label :send_price,"配送料の負担"
               %span.listing-submission__form-require 必須
             .listing-submission__select--wrap
-              = f.select :send_price, Product.send_prices_i18n.invert, {}, class: "select-area", include_blank: true
+              = f.select :send_price, Product.send_prices_i18n.invert, include_blank: '', class: "select-default", include_blank: true
               .listing-submission__no-product.no-product__send_price
           
           .listing-submission__details__form
@@ -98,15 +104,16 @@
               発送元の地域
               %span.listing-submission__form-require 必須
             .listing-submission__select--wrap
-              = f.collection_select(:prefecture, Prefecture.all, :id, :name, prompt: "選択してください")
+              = f.collection_select(:prefecture, Prefecture.all, :id, :name, prompt: "--")
               .listing-submission__no-product
+                選択してください
 
           .listing-submission__details__form
             .listing-submission__content__head
               = f.label :ship_day,"発送までの日数"
               %span.listing-submission__form-require 必須
             .listing-submission__select--wrap
-              = f.select :shipping_date, Product.shipping_dates_i18n.invert, {}, class: "select-area"
+              = f.select :shipping_date, Product.shipping_dates_i18n.invert, include_blank: '', class: "select"
               .listing-submission__no-product.no-product__shipping_date
       
       .listing-submission__price__content
@@ -167,10 +174,10 @@
         .listing-submission__second__line
           %br.listing-submission__second__line__text
             より処罰される可能性があります。また、出品をもちまして
-          .listing-submission__second__line__text2
-            =link_to "#", class: 'sell__content__text' do
-              加盟店規約 
-            に同意したことになります。
+            .listing-submission__second__line__text2
+              =link_to "#", class: 'sell__content__text' do
+                加盟店規約
+              に同意したことになります。
 .exhibit__footer
   .exhibit__footer__content
     .exhibit__footer__content__main
@@ -178,8 +185,8 @@
         %li.exhibit__footer__list
           プライバシーポリシー
         %li.exhibit__footer__list
-          メルカリ利用規約
+          フリマ利用規約
         %li.exhibit__footer__list
           特定商取引に関する表記
       %p.exhibit__footer__copyright
-        © Mercari,Inc
+        © furima,Inc
