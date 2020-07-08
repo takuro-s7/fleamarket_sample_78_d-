@@ -18,7 +18,7 @@ class Product < ApplicationRecord
     validates :status
     validates :send_price
     validates :shipping_date
-    validates :prefecture
+    validates :prefecture_id
     validates :category_id
   end
 

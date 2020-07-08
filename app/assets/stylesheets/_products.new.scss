@@ -12,8 +12,10 @@
     margin: 0 auto;
   }
   &__top__section{
-    margin-top: 16px;
+    padding: 40px;
+    border-top: 1px solid #eee;
     width: 100%;
+    height: 340px;
   }
   &__top{
     padding: 32px 16px;
@@ -70,64 +72,77 @@
   }
   &__text{
     font-size: 14px;
-    margin: 8px 0 0;
+    margin: 16px 0 0;
     line-height: 1.5;
   }
   
   #image-box-1{
     display: flex;
     flex-wrap: wrap;
+    margin: 16px -4px 0px;
+
   }
 
   .camera-box{
+    padding: 40px;
+    width: 100%;
     display: block;
-    height: 100px;
-    background-color: #C0C0C0;
-    margin: 16px 0 0 0  ;
+    background-color: rgb(245, 245, 245);
     border: 2px dotted #888888;
     word-wrap: break-all;
     text-align: center;
     font-size: 30px;
-    i{
-      fill: rgb(34, 34, 34);
-      height: 24px;
-      margin-bottom: 8px;
-      width: 24px;
+    height: 100%;
+    label{
+      color: #000000;
     }
-
+    .upload-label__text{
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4em;
+    text-align: center;
+    width: 100%;
+    }
   }
-  .item-num-0{
+
+  .product-num-0{
     width: 100%;
   }
-  .item-num-1{
+  .product-num-1{
     width: 491px;
   }
-  .item-num-2{
+  .product-num-2{
     width: 363px;
   }
-  .item-num-3{
+  .product-num-3{
     width: 234px;
   }
-  .item-num-4{
+  .product-num-4{
     width: 106px;
   }
   //下段のfile_field
-  .item-num-5{
+  .product-num-5{
     width: 100%;
   }
-  .item-num-6{
+  .product-num-6{
     width: 491px;
   }
-  .item-num-7{
+  .product-num-7{
     width: 363px;
   }
-  .item-num-8{
+  .product-num-8{
     width: 234px;
   }
-  .item-num-9{
+  .product-num-9{
     width: 106px;
   }
-  .item-image__operetion--delete:hover{
+  .product-image__operetion--delete{
+    text-align: center;
+    font-weight: bold;
+    color: #2646f8;
+    box-shadow: 0 0 6px rgba(41, 41, 41, 0.2);
+  }
+  .product-image__operetion--delete:hover{
     cursor : pointer;
   }
   @mixin add_image_size {
@@ -197,16 +212,18 @@
     padding: 40px;
     border-top: 1px solid #eee;
     width: 100%;
-    height: 500px;
+    height: 370px;
   }
   &__group{
-    margin: 40px 0 0;
     input{
       height: 45px;
       width: 100%;
       border-radius: 5px;
       border: 1px solid #000000;
     }
+  }
+  &__text-area-group{
+    padding-top: 15px;
     textarea{
       width: 100%;
       height: 140px;
@@ -268,7 +285,7 @@
     height: 50px;
     border-radius: 5px;
   }
-  .select-area{
+  .select-default{
     text-decoration: none;
   }
   .brand__select{
@@ -330,7 +347,9 @@
   .mix-price{
     width: 100%;
     height: 40px;
+    padding-right: 15px;
     border-radius: 5px;
+    text-align: right;
     border: 1px solid #000000;
   }
   .mix-price::placeholder{
@@ -351,7 +370,7 @@
     box-sizing: content-box;
     height: 46px;
   }
-  &__commision-box{
+  &__commission-box{
     width: 100%;
     height: 100%;
     display: flex;
@@ -419,6 +438,7 @@
     display: flex;
     &__text2{
       display: flex;
+      height: 0;
     }
   }
   .sell__content__text{
@@ -459,4 +479,12 @@
       color:black;
     }
   }
+}
+
+.child {
+  display: none;
+}
+
+.grand_child {
+  display: none;
 }

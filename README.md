@@ -41,7 +41,6 @@
 |status|integer| null:false|
 |brand|string|
 |send_price|integer| null:false|
-|buyer_id|integer| null:false|
 |category_id|integer| null:false, foreign_key: true|
 |user|references|null:false, foreign_key: true|
 |shipping_date|integer| null:false|
