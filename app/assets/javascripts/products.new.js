@@ -42,26 +42,6 @@ window.addEventListener("load", function(){
       $('.no-product__text').text('')
     }
   });
-<<<<<<< HEAD
-  $('.select-area').on('click',function(){
-    let status = $(this).val();
-    if(status == 0){
-      $('.default02').css('border-color','red')
-      $('no-product__condition').text('選択してください')
-    }else{
-      $('.default02').css('border-color','')
-      $('no-product__condition').text('')
-    }
-  });
-  $('.default02').on('change',function(){
-    let status = $(this).val();
-    if(status == 0){
-      $('.default02').css('border-color','red')
-      $('no-product__condition').text('選択してください')
-    }else{
-      $('.default02').css('border-color','')
-      $('no-product__condition').text('')
-=======
   $('.select-condition').on('click',function(){
     let condition = $(this).val();
     if(condition == ''){
@@ -80,7 +60,6 @@ window.addEventListener("load", function(){
     }else{
       $('.select-condition').css('border-color','')
       $('.no-product__condition').text('')
->>>>>>> upstream/master
     }
   });
   $('.select-send_price').on('click',function(){

@@ -30,8 +30,4 @@ yarn-debug.log*
 .yarn-integrity
 vendor/
 /yarn.lock
-<<<<<<< HEAD
 /public/uploads/*
-=======
-/public/uploads/*
->>>>>>> upstream/master
