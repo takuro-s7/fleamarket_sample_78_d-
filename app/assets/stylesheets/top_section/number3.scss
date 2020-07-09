@@ -1,99 +1,99 @@
-// // 上から三つ目のセクションのscssです(_number3)
-// .pickupContainer{
-//   padding: 80px 0 0;
-//   background-color: #f8f8f8;
-//   height: 100%;
-//   &__head{
-//     font-size: 27px;
-//     text-align: center;
-//     margin: 0 0 40px;
-//     font-weight: bold;
-//     margin-bottom: 25px;
-//     padding-bottom: 15px;
-//     position: relative;
-//   }
+// 上から三つ目のセクションのscssです(_number3)
+.pickupContainer{
+  padding: 80px 0 0;
+  background-color: #f8f8f8;
+  height: 100%;
+  &__head{
+    font-size: 27px;
+    text-align: center;
+    margin: 0 0 40px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+  }
 
   
-//   &__productBox{
-//   &__head{
-//     text-align: center;
-//     a{
-//       font-size: 24px;
-//     text-decoration: none;
-//     color: #3CCACE;
-//     }
-//   }
-// &__lists{
-//     width: 780px;
-//     margin: 26px auto;
-//     display: flex;
-//   &__list{
-//     width: 220px;
-//     float: left;
-//     display: flex;
-//     &__a{
-//       background-color: #fff;
-//     display: inline-block;
-//     &--img{
-//       width: 220px;
-//     height: 150px;
-//     position: relative;
-//     overflow: hidden;
-//     margin: 0;
-//     z-index: auto;
-//     &__pice{
-//       position: absolute;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     width: 100%;
-//     z-index: auto;
-//     height: 150px;
-//     object-fit: cover;  
-//     }
-//   }
-//   &__body{
-//   background-color: white;
-//     color: #333;
-//     padding: 16px;
+  &__productBox{
+  &__head{
+    text-align: center;
+    a{
+      font-size: 24px;
+    text-decoration: none;
+    color: #3CCACE;
+    }
+  }
+&__lists{
+    width: 780px;
+    margin: 26px auto;
+    display: flex;
+  &__list{
+    width: 220px;
+    float: left;
+    display: flex;
+    &__a{
+      background-color: #fff;
+    display: inline-block;
+    &--img{
+      width: 220px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    z-index: auto;
+    &__pice{
+      position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: auto;
+    height: 150px;
+    object-fit: cover;  
+    }
+  }
+  &__body{
+  background-color: white;
+    color: #333;
+    padding: 16px;
 
-//     &__name{
-//       overflow: hidden;
-//     line-height: 1.5;
-//     font-size: 16px;
-//     text-align: left;
-//     padding-left: 5px;
-//     }
-//     &__datails{
-//       font-size: 16px;
-//     }
-//   }
-//   }
-//     }
-//     }
-//   }
-// }
-// .sold{
-//   width: 0;
-//   height: 0;
-//   border-top: 60px solid #ea352d ;
-//   border-right: 60px solid transparent;
-//   border-bottom: 60px solid transparent;
-//   border-left: 60px solid #ea352d ;
-//   z-index:100;
-//   position: relative;
-//   top:-235px;
-//   &__inner{
-//     transform: rotate(-45deg);
-//     font-size: 26px;
-//     margin:-28px 0px 0px -55px;
-//     color: #fff;
-//     letter-spacing: 2px;
-//     font-weight: 600;
-//   }
-// }
+    &__name{
+      overflow: hidden;
+    line-height: 1.5;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 5px;
+    }
+    &__datails{
+      font-size: 16px;
+    }
+  }
+  }
+    }
+    }
+  }
+}
+.sold{
+  width: 0;
+  height: 0;
+  border-top: 60px solid #ea352d ;
+  border-right: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 60px solid #ea352d ;
+  z-index:100;
+  position: relative;
+  top:-235px;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 26px;
+    margin:-28px 0px 0px -55px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}
 
-// .listBtn{
-//   height: 250px;
-// }
+.listBtn{
+  height: 250px;
+}
