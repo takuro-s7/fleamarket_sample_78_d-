@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'products#index'
 
   resources :products, except: [:index]
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
   
-  resources :users, only: :new  
+  resources :users, only: [:new, :show]
 
   resources :products
   get 'products/new/mid_category', to: 'products#mid_category'
