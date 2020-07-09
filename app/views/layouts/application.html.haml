@@ -31,22 +31,15 @@
             %li.header-inner__nav--lists-left__item
               =link_to "ブランド","#",class: "header-inner__nav--lists-left__item"
           %ul.header-inner__nav--lists-right
-
-            -if user_signed_in?
-              %li.header-inner__nav--lists-right__login
-                =link_to "ログアウト",destroy_user_session_path,class: "header-inner__nav--lists-right__logout", local:true
-              %li.header-inner__nav--lists-right__new
-                =link_to "マイページ", user_path(current_user.id),class: "header-inner__nav--lists-right__mypage", local: true
-            -else
-              %li.header-inner__nav--lists-right__login
-                =link_to "ログイン",new_user_session_path,class: "header-inner__nav--lists-right__login", local:true
-              %li.header-inner__nav--lists-right__new
-                =link_to "新規会員登録", new_user_registration_path,class: "header-inner__nav--lists-right__new", local: true
-            %li.header-inner__nav--lists-right__login
+            
             - if user_signed_in?
-              = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-inner__nav--lists-right__logout"
+              %li.header-inner__nav--lists-right__login
+                = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-inner__nav--lists-right__logout"
+              %li.header-inner__nav--lists-right__new
+                =link_to "マイページ", user_path(current_user.id),class: "header-inner__nav--lists-right__mypage", local: true 
             - else  
-              =link_to "ログイン",new_user_session_path,class: "header-inner__nav--lists-right__login"
+              %li.header-inner__nav--lists-right__login
+                =link_to "ログイン",new_user_session_path,class: "header-inner__nav--lists-right__login"
               %li.header-inner__nav--lists-right__new
                 =link_to "新規会員登録", new_user_registration_path,class: "header-inner__nav--lists-right__new"
     = yield
