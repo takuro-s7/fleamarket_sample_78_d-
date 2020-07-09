@@ -16,8 +16,7 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
   
-  resources :users, only: :new  
-
+  resources :users, only: :new
   resources :products
   get 'products/new/mid_category', to: 'products#mid_category'
   get 'products/new/small_category', to: 'products#small_category'

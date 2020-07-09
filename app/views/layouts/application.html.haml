@@ -6,12 +6,12 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+
     = javascript_include_tag 'application'
-<<<<<<< HEAD
    
     -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-=======
->>>>>>> master
+
+
   %body
     %header.boss
       .header-inner 
@@ -36,7 +36,7 @@
             %li.header-inner__nav--lists-left__item
               =link_to "ブランド","#",class: "header-inner__nav--lists-left__item"
           %ul.header-inner__nav--lists-right
-<<<<<<< HEAD
+
             -if user_signed_in?
               %li.header-inner__nav--lists-right__login
                 =link_to "ログアウト",destroy_user_session_path,class: "header-inner__nav--lists-right__logout", local:true
@@ -55,7 +55,7 @@
               =link_to "ログイン",new_user_session_path,class: "header-inner__nav--lists-right__login"
               %li.header-inner__nav--lists-right__new
                 =link_to "新規会員登録", new_user_registration_path,class: "header-inner__nav--lists-right__new"
->>>>>>> master
+>>>>>>> parent of ec45ed6... mypage create
     = yield
     -# フッター
     %footer
@@ -66,13 +66,8 @@
           %p.appBanner__inner--text
             今すぐ無料ダウンロード
           .appBanner__inner--icon
-<<<<<<< HEAD
-            = link_to (image_tag "app-store"), "#" ,class: "appBanner__inner--icon"
-            = link_to (image_tag "gougleplay"),"#",class: "appBanner__inner--icon"
-=======
             = link_to (image_tag "app-store.svg"), "#" ,class: "appBanner__inner--icon"
             = link_to (image_tag "gougleplay.svg"),"#",class: "appBanner__inner--icon"
->>>>>>> master
       .bottm-footer
         %ul.bottm-footer__contents
           %li.bottm-footer__contents--content
