@@ -1,4 +1,16 @@
 # README
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string| null:false|
+|email|string| null:false, unique: true|
+|password|string| null:false|
+|password_conform|string| null:false|
+|first_name|string|null:false|
+|last_name|string|null:false|
+|first_name_kana|string| null:false|
+|last_name_kana|string| null:false|
+|birthday|date| null:false|
 
 ## usersテーブル
 |Column|Type|Options|
@@ -41,7 +53,6 @@
 |status|integer| null:false|
 |brand|string|
 |send_price|integer| null:false|
-|buyer_id|integer| null:false|
 |category_id|integer| null:false, foreign_key: true|
 |user|references|null:false, foreign_key: true|
 |shipping_date|integer| null:false|

@@ -1,18 +1,5 @@
 ja:
-  activerecord:
-    attributes:
-      user:
-        birthday: "生年月日"
-        nickname: "ニックネーム"
-        email: Eメール
-        password: パスワード 
-        first name: 名前 
-        last name: 苗字
-        First name kana: 名前のカナ
-        Last name kana:  苗字のカナ
-
   errors:
-    format: "%{attribute}%{message}"
     messages:
       not_found: "は見つかりませんでした"
 #      not_found: "not found"
@@ -20,8 +7,6 @@ ja:
 #      already_confirmed: "was already confirmed"
       not_locked: "は凍結されていません"
 #      not_locked: "was not locked"
-      accepted: を受諾してください
-      blank: を入力してください  
   devise:
     failure:
       unauthenticated: 'ログインしてください。'

@@ -1,18 +1,19 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, except: [:index, :new, :create, :mid_category, :small_category]
+  before_action :set_categories, only: [:edit, :update]
 
   def index
   end
   
   def new
-    @product = Product.new
-    @product.images.new
-    # if user_signed_in?
-    #   @product = Product.new
-    #   @product.images.new
-    # else
-    #   redirect_to root_path
-    # end
+    @parent = Category.where(ancestry: nil)
+    if user_signed_in?
+      @product = Product.new
+      @product.images.new
+      @parent = Category.where(ancestry: nil)
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -20,8 +21,7 @@ class ProductsController < ApplicationController
     if params[:product][:images_attributes] && @product.save
       redirect_to root_path
     else
-      @product.images.new
-      render :new
+      redirect_to root_path
     end
   end
 
@@ -37,18 +37,37 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-    redirect_to root_path
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
+  def mid_category
+    @mid_categories = Category.where(ancestry: params[:big_category_id])
+    render json: @mid_categories
+  end
+
+  def small_category
+    @small_categories = Category.where(ancestry: "#{params[:big_category_id]}/#{params[:mid_category_id]}")
+    render json: @small_categories
   end
 
   private
   def product_params
-    params.require(:product).permit(:name, :category_id, :price, :description, :size, :brand, :status, :condition, :send_price, 
-                                    :shipping_date, :prefecture, :buyer_id, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :price, :description, :size, :brand, :status, :condition, :send_price, 
+                                    :shipping_date, images_attributes: [:image])
+                            .merge(user_id: current_user.id, category_id: params[:product][:category_id],
+                              prefecture_id: params[:product][:prefecture], status: 0)
   end
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.where(ancestry: nil)
   end
 
 end

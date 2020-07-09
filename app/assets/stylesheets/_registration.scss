@@ -289,7 +289,8 @@ body {
       }
     } 
   }
-}
+  
+ }
 
 .checkbox-default{
   margin-top: 16px;
@@ -412,13 +413,6 @@ input[type=checkbox] {
   min-width: 768px;
 }
 
-.step0{
-  padding: 24px 40px 64px;
-  &__contents{
-    max-width: 343px;
-    margin: 0 auto;
-  }
-}
 
 .btn-def {
   display: block;
@@ -491,7 +485,7 @@ input[type=checkbox] {
   text-align: center;
 }
 
-.login-form-inner{ 
+.login-form-inner{
   box-sizing: border-box;
   text-align: center;
   font-size: 22px;
