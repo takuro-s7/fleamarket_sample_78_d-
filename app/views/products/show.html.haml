@@ -1,0 +1,8 @@
+.show__all
+  - if user_signed_in?
+    - if @product.status == "display"
+      = render 'show-sign_in'
+    - else
+      = render 'show-sold_out'
+  - else
+    = render 'show-sign_out'
