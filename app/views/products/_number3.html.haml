@@ -1,89 +1,89 @@
--# %section.pickupContainer
--#   %h2.pickupContainer__head
--#     ピックアップカテゴリー
--#   .pickupContainer__productBox
--#     .pickupContainer__productBox__head
--#       =link_to "#" do
--#         %h3.title
--#           新規投稿商品
--#     .pickupContainer__productBox__lists
--#       .pickupContainer__productBox__lists__list
--#         - @brandProducts.each do |product|
--#           = link_to product_path(product), class: "listBtn" do
--#             %figure.pickupContainer__productBox__lists__list__a--img
--#               = image_tag product.images[0].image.url,class: "pickupContainer__productBox__lists__list__a--img__pice"
--#             .pickupContainer__productBox__lists__list__a__body
--#               %h3.pickupContainer__productBox__lists__list__a__body__name
--#                 = product.name
--#               .pickupContainer__productBox__lists__list__a__body__details
--#                 %ul
--#                   %li
--#                     = product.price
--#                     円
--#                   %li
--#                   %i.like
--#                 %p
--#                   （税込）
+%section.pickupContainer
+  %h2.pickupContainer__head
+    ピックアップカテゴリー
+  .pickupContainer__productBox
+    .pickupContainer__productBox__head
+      =link_to "#" do
+        %h3.title
+          新規投稿商品
+    .pickupContainer__productBox__lists
+      .pickupContainer__productBox__lists__list
+        - @brandProducts.each do |product|
+          = link_to product_path(product), class: "listBtn" do
+            %figure.pickupContainer__productBox__lists__list__a--img
+              = image_tag product.images[0].image.url,class: "pickupContainer__productBox__lists__list__a--img__pice"
+            .pickupContainer__productBox__lists__list__a__body
+              %h3.pickupContainer__productBox__lists__list__a__body__name
+                = product.name
+              .pickupContainer__productBox__lists__list__a__body__details
+                %ul
+                  %li
+                    = product.price
+                    円
+                  %li
+                  %i.like
+                %p
+                  （税込）
 
 
--# -# ピックアップブランド
--# %section.pickupContainer
--#   %h2.pickupContainer__head
--#     ランダムピックアップ
--#   .pickupContainer__productBox
--#     .pickupContainer__productBox__head
--#       =link_to "#" do
--#         %h3.title
--#           アーカイバ
--#     .pickupContainer__productBox__lists
--#       .pickupContainer__productBox__lists__list
--#         - @newProducts.each do |product|
--#           = link_to product_path(product), class: "listBtn" do
--#             %figure.pickupContainer__productBox__lists__list__a--img
--#               = image_tag product.images[0].image.url, alt: "image_url",class: "pickupContainer__productBox__lists__list__a--img__pice"
--#             .pickupContainer__productBox__lists__list__a__body
--#               %h3.pickupContainer__productBox__lists__list__a__body__name
--#                 = product.name
--#               .pickupContainer__productBox__lists__list__a__body__details
--#                 %ul
--#                   %li
--#                     = product.price
--#                     円
--#                   %li
--#                     %i.like
--#                 %p
--#                   （税込）
+-# ピックアップブランド
+%section.pickupContainer
+  %h2.pickupContainer__head
+    ランダムピックアップ
+  .pickupContainer__productBox
+    .pickupContainer__productBox__head
+      =link_to "#" do
+        %h3.title
+          アーカイバ
+    .pickupContainer__productBox__lists
+      .pickupContainer__productBox__lists__list
+        - @newProducts.each do |product|
+          = link_to product_path(product), class: "listBtn" do
+            %figure.pickupContainer__productBox__lists__list__a--img
+              = image_tag product.images[0].image.url, alt: "image_url",class: "pickupContainer__productBox__lists__list__a--img__pice"
+            .pickupContainer__productBox__lists__list__a__body
+              %h3.pickupContainer__productBox__lists__list__a__body__name
+                = product.name
+              .pickupContainer__productBox__lists__list__a__body__details
+                %ul
+                  %li
+                    = product.price
+                    円
+                  %li
+                    %i.like
+                %p
+                  （税込）
 
--# -# 売り切れ
--# %section.pickupContainer
--#   %h2.pickupContainer__head
--#     SOLD OUT
--#   .pickupContainer__productBox
--#     .pickupContainer__productBox__head
--#       =link_to "#" do
--#         %h3.title
--#           売却済み
--#     .pickupContainer__productBox__lists
--#       .pickupContainer__productBox__lists__list
--#         - @soldProducts.each do |product|
--#           = link_to product_path(product), class: "listBtn" do
--#             %figure.pickupContainer__productBox__lists__list__a--img
--#               = image_tag product.images[0].image.url, alt: "image_url",class: "pickupContainer__productBox__lists__list__a--img__pice"
--#             .pickupContainer__productBox__lists__list__a__body
--#               %h3.pickupContainer__productBox__lists__list__a__body__name
--#                 = product.name
--#               .pickupContainer__productBox__lists__list__a__body__details
--#                 %ul
--#                   %li
--#                     = product.price
--#                     円
--#                   %li
--#                     %i.like
--#                 %p
--#                   （税込）
--#             .sold
--#               .sold__inner
--#                 SOLD
+-# 売り切れ
+%section.pickupContainer
+  %h2.pickupContainer__head
+    SOLD OUT
+  .pickupContainer__productBox
+    .pickupContainer__productBox__head
+      =link_to "#" do
+        %h3.title
+          売却済み
+    .pickupContainer__productBox__lists
+      .pickupContainer__productBox__lists__list
+        - @soldProducts.each do |product|
+          = link_to product_path(product), class: "listBtn" do
+            %figure.pickupContainer__productBox__lists__list__a--img
+              = image_tag product.images[0].image.url, alt: "image_url",class: "pickupContainer__productBox__lists__list__a--img__pice"
+            .pickupContainer__productBox__lists__list__a__body
+              %h3.pickupContainer__productBox__lists__list__a__body__name
+                = product.name
+              .pickupContainer__productBox__lists__list__a__body__details
+                %ul
+                  %li
+                    = product.price
+                    円
+                  %li
+                    %i.like
+                %p
+                  （税込）
+            .sold
+              .sold__inner
+                SOLD
 
 
 
