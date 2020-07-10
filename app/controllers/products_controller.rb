@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  require 'payjp'
   before_action :set_product, except: [:index, :new, :create, :mid_category, :small_category]
   before_action :set_categories, only: [:edit, :update]
 
@@ -54,6 +55,15 @@ class ProductsController < ApplicationController
     render json: @small_categories
   end
 
+
+  def purchase
+    Payjp.api_key = "秘密鍵"
+    Payjp::Charge.create(
+      amount: 809, # 決済する値段
+      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      currency: 'jpy'
+    )
+  end
   private
   def product_params
     params.require(:product).permit(:name, :price, :description, :size, :brand, :status, :condition, :send_price, 
