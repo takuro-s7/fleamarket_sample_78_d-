@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end  
   
-  resources :users, only: :new  
+  resources :users, only: [:new, :show]
 
   resources :products
   get 'products/new/mid_category', to: 'products#mid_category'

@@ -30,8 +30,7 @@
               =link_to "カテゴリー","#",class: "header-inner__nav--lists-left__item"
             %li.header-inner__nav--lists-left__item
               =link_to "ブランド","#",class: "header-inner__nav--lists-left__item"
-          %ul.header-inner__nav--lists-right
-            
+          %ul.header-inner__nav--lists-right    
             - if user_signed_in?
               %li.header-inner__nav--lists-right__login
                 = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-inner__nav--lists-right__logout"

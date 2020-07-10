@@ -20,6 +20,7 @@ class Product < ApplicationRecord
     validates :shipping_date
     validates :prefecture_id
     validates :category_id
+    validates :size
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
