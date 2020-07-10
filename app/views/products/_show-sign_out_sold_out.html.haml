@@ -28,6 +28,9 @@
       %ul.detail__main__img
         %li
           = image_tag @product.images[0].image.url, class: "detail__main__img__image"
+          .sold__out
+            .sold__out__show 
+              SOLD
           %ul
             - @product.images.each do |image|
               %li

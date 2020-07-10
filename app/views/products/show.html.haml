@@ -5,4 +5,7 @@
     - else
       = render 'show-sold_out'
   - else
-    = render 'show-sign_out'
+    - if @product.status == "display"
+      = render 'show-sign_out'
+    - else
+      = render 'show-sign_out_sold_out'
