@@ -25,9 +25,9 @@
     .detail
       .detail__name
         = @product.name
-      %ul.detail__main-img
+      %ul.detail__main__img
         %li
-          = image_tag @product.images[0].image.url, class: "detail--main-img--image"
+          = image_tag @product.images[0].image.url, class: "detail__main__img__image"
           %ul
             - @product.images.each do |image|
               %li
@@ -38,10 +38,10 @@
       
         %p (税込) 送料込み
 
-      .detail__product--name
+      .detail__product__name
         = @product.name
 
-      .detail__product--description
+      .detail__product__description
         = @product.description
       .detail__table
       
@@ -94,12 +94,12 @@
                 = @product.shipping_date_i18n
   .links
     .links__around
-      = link_to "#", class: "links__around--ahead" do
+      = link_to "#", class: "links__around__ahead" do
         < 前の商品
-      = link_to "#", class: "links__around--behind" do
+      = link_to "#", class: "links__around__behind" do
         後ろの商品 >
     .links__category
-      = link_to "#", class: "links__category--related" do
+      = link_to "#", class: "links__category__related" do
         = "#{@product.category.parent.parent.name} をもっと見る"
     - if current_user.id == @product.user_id
       = link_to "商品を編集する", edit_product_path(@product), class: "edit-btn"
