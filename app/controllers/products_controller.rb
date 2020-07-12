@@ -4,6 +4,11 @@ class ProductsController < ApplicationController
   before_action :set_categories, only: [:edit, :update]
 
   def index
+    @product = Product.new
+    @product.images.new
+    @newProducts = Product.includes(:images).where(status: 0).order("RAND()").limit(4)
+    @brandProducts = Product.includes(:images).where(status: 0).order("id DESC").limit(4)
+    @soldProducts = Product.includes(:images).where(status: 1).order("id DESC").limit(4)
   end
   
   def new
