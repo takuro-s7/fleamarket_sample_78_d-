@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create, :mid_category, :small_category]
+  before_action :set_product, except: [:index, :new, :create, :mid_category, :small_category, :buy, :purchase]
   before_action :set_categories, only: [:edit, :update]
-
   def index
     @product = Product.new
     @product.images.new
@@ -32,6 +31,14 @@ class ProductsController < ApplicationController
 
   def show
   end
+
+  def buy
+    @address = Address.where(user_id: current_user.id).first
+    @product= Product.find(params[:id])
+  end
+
+  def purchase
+  end  
 
   def update
     if @product.update(product_params)

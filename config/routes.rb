@@ -16,16 +16,20 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
-  resources :users, only: [:show, :index]do
+  resources :users, only: [:show]do
     member do   
       get 'logout'
-      get "card"
     end
   end  
   
-  resources :users, only: [:new, :show]
 
-  resources :products
-  get 'products/new/mid_category', to: 'products#mid_category'
-  get 'products/new/small_category', to: 'products#small_category'
+  resources :products do
+    member do
+      post 'purchase'
+      get 'buy'
+      get 'purchased'
+    end  
+    get 'products/new/mid_category', to: 'products#mid_category'
+    get 'products/new/small_category', to: 'products#small_category'
+  end  
 end
