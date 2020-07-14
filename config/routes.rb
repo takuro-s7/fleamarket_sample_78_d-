@@ -21,7 +21,6 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end  
-  
 
   resources :products do
     member do
@@ -32,4 +31,13 @@ Rails.application.routes.draw do
     get 'products/new/mid_category', to: 'products#mid_category'
     get 'products/new/small_category', to: 'products#small_category'
   end  
+  
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
 end
+

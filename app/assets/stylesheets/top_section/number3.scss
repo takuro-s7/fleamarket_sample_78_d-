@@ -33,7 +33,7 @@
     display: flex;
     &__a{
       background-color: #fff;
-    display: inline-block;
+      display: inline-block;
     &--img{
       width: 220px;
     height: 150px;
@@ -86,7 +86,7 @@
   top:-235px;
   &__inner{
     transform: rotate(-45deg);
-    font-size: 26px;
+    font-size: 20px;
     margin:-28px 0px 0px -55px;
     color: #fff;
     letter-spacing: 2px;
