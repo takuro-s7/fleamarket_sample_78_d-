@@ -17,27 +17,31 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
-  resources :users, only: [:show, :index]do
-    member do  
+  resources :users, only: [:show]do
+    member do   
       get 'logout'
-
-      
     end
-    
   end  
+
   
  
 
-# resources :products do
-#   member do
-#     post '/products/:id/purchase',to: 'products#purchase'
-#   end
-# end
+
   post '/products/:id/purchase',to: 'products#purchase'
   get 'products/new/mid_category', to: 'products#mid_category'
   get 'products/new/small_category', to: 'products#small_category'
  
 
+  resources :products do
+    member do
+      post 'purchase'
+      get 'buy'
+      get 'purchased'
+    end  
+    get 'products/new/mid_category', to: 'products#mid_category'
+    get 'products/new/small_category', to: 'products#small_category'
+  end  
+  
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
@@ -46,5 +50,4 @@ Rails.application.routes.draw do
     end
   end
 end
-
 

@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   require 'payjp'
-  before_action :set_product, except: [:index, :new, :create, :mid_category, :small_category]
+  before_action :set_product, except: [:index, :new, :create, :mid_category, :small_category, :buy, :purchase]
+  before_action :set_product_purchase, only: [:buy, :purchase]
   before_action :set_categories, only: [:edit, :update]
-
   def index
     @product = Product.new
     @product.images.new
@@ -34,7 +34,16 @@ class ProductsController < ApplicationController
   def show
   end
 
+
   def updateg
+
+  def buy
+    @address = Address.find_by(user_id: current_user.id)
+  end
+
+
+  def update
+
     if @product.update(product_params)
       redirect_to root_path
     else
@@ -80,6 +89,10 @@ class ProductsController < ApplicationController
   end
 
   def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def set_product_purchase
     @product = Product.find(params[:id])
   end
 
