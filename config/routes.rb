@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'card/new'
-  get 'card/show'
   root to: 'products#index'
 
   resources :products, except: [:index]
@@ -19,12 +17,15 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :index]do
-    member do   
+    member do  
       get 'logout'
-      get "card"
+
+      
     end
+    
   end  
   
+ 
 
   resources :products
   get 'products/new/mid_category', to: 'products#mid_category'
