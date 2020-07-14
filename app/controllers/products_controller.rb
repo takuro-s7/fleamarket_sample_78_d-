@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   require 'payjp'
-  before_action :set_product, except: [:index, :new, :create, :mid_category, :small_category]
+  before_action :set_product, except: [:index, :new, :create, :mid_category, :small_category, :buy, :purchase]
+  before_action :set_product_purchase, only: [:buy, :purchase]
   before_action :set_categories, only: [:edit, :update]
-
   def index
     @product = Product.new
     @product.images.new
@@ -34,7 +34,16 @@ class ProductsController < ApplicationController
   def show
   end
 
+
+  def updateg
+
+  def buy
+    @address = Address.find_by(user_id: current_user.id)
+  end
+
+
   def update
+
     if @product.update(product_params)
       redirect_to root_path
     else
@@ -62,13 +71,15 @@ class ProductsController < ApplicationController
 
 
   def purchase
-    Payjp.api_key = "秘密鍵"
+    Payjp.api_key = Rails.application.credentials.PAYJP_SECRET_KEY
     Payjp::Charge.create(
-      amount: 809, # 決済する値段
+      amount: @product.price, # 決済する値段
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
   end
+
+
   private
   def product_params
     params.require(:product).permit(:name, :price, :description, :size, :brand, :status, :condition, :send_price, 
@@ -81,8 +92,16 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def set_product_purchase
+    @product = Product.find(params[:id])
+  end
+
   def set_categories
     @categories = Category.where(ancestry: nil)
   end
+
+# def set_product_purchase
+#   @product
+# end
 
 end
