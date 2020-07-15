@@ -73,6 +73,13 @@ class ProductsController < ApplicationController
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
+    @product.update(status: 1)
+    redirect_to  buy_product_path
+  else 
+    flash[:notice] = "payjp以外が原因でクレジットカードでの支払いに失敗しました。"
+    render :show
+    end
+
   end
   private
   def product_params
