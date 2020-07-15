@@ -33,9 +33,7 @@ class ProductsController < ApplicationController
 
   def show
   end
-
-
-  def updateg
+  
 
   def buy
     @address = Address.find_by(user_id: current_user.id)
@@ -43,7 +41,6 @@ class ProductsController < ApplicationController
 
 
   def update
-
     if @product.update(product_params)
       redirect_to root_path
     else
@@ -78,7 +75,6 @@ class ProductsController < ApplicationController
       currency: 'jpy'
     )
   end
-
 
   private
   def product_params
