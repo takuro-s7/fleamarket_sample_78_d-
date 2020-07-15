@@ -33,6 +33,8 @@ class ProductsController < ApplicationController
 
   def show
   end
+
+
   
 
   def buy
@@ -69,11 +71,17 @@ class ProductsController < ApplicationController
 
   def purchase
     Payjp.api_key = Rails.application.credentials.PAYJP_SECRET_KEY
-    Payjp::Charge.create(
+    if Payjp::Charge.create(
       amount: @product.price, # 決済する値段
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
+    @product.update(status: 1)
+    redirect_to root_path
+  else 
+    flash[:notice] = "payjp以外が原因でクレジットカードでの支払いに失敗しました。"
+    render :show
+    end
   end
 
   private
@@ -96,8 +104,6 @@ class ProductsController < ApplicationController
     @categories = Category.where(ancestry: nil)
   end
 
-# def set_product_purchase
-#   @product
-# end
+
 
 end
